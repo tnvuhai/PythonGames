@@ -93,7 +93,8 @@ block_list = pygame.sprite.Group()
 bullet_list = pygame.sprite.Group()
  
 # --- Create the sprites
- 
+
+
 for i in range(50):
     # This represents a block
     block = Block(BLUE)
@@ -119,6 +120,13 @@ clock = pygame.time.Clock()
 score = 0
 player.rect.y = 370
  
+#
+white = (255, 255, 255)
+green = (0, 255, 0)
+blue = (0, 0, 128)
+font = pygame.font.SysFont("comicsansms", 32)
+
+
 # -------- Main Program Loop -----------
 while not done:
     # --- Event Processing
@@ -163,6 +171,12 @@ while not done:
  
     # Clear the screen
     screen.fill(WHITE)
+    
+    #
+    Scoretext = font.render(str(score), True, green, blue)
+    ScoreRect = Scoretext.get_rect()
+    ScoreRect.center = (15, 15)
+    screen.blit(Scoretext,ScoreRect)
  
     # Draw all the spites
     all_sprites_list.draw(screen)
